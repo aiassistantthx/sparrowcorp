@@ -1,0 +1,1084 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#0c0c0d">
+    <meta name="color-scheme" content="dark">
+    <title>Sparrowcorp — Growth Team for Mobile Apps</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --bg: #0c0c0d;
+            --bg-elev: #161617;
+            --bg-elev-2: #1d1d1f;
+            --fg: #f2f2f3;
+            --fg-soft: #a8a8ad;
+            --fg-muted: #6e6e73;
+            --line: #232326;
+            --line-strong: #2e2e32;
+            --green: #4ade80;
+            --green-glow: rgba(74, 222, 128, 0.15);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html, body {
+            background: #0c0c0d !important;
+            background-color: #0c0c0d !important;
+            color-scheme: dark;
+        }
+
+        html {
+            height: 100%;
+            min-height: 100%;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            font-feature-settings: 'ss01', 'cv11';
+            letter-spacing: -0.005em;
+            color: var(--fg);
+            line-height: 1.55;
+            min-height: 100vh;
+            background-color: var(--bg);
+        }
+
+        section, header, footer, main, nav {
+            background-color: var(--bg);
+        }
+
+        .mono {
+            font-family: 'JetBrains Mono', monospace;
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 32px;
+        }
+
+        @media (max-width: 900px) {
+            .container { padding: 0 20px; }
+        }
+        @media (max-width: 480px) {
+            .container { padding: 0 16px; }
+        }
+
+        /* Animations */
+        @keyframes pulse {
+            50% { opacity: 0.4; }
+        }
+        @keyframes blink {
+            50% { opacity: 0; }
+        }
+
+        /* Topbar */
+        .topbar {
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            height: 50px;
+            background: rgba(12, 12, 13, 0.85);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border-bottom: 1px solid var(--line);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 32px;
+        }
+
+        .topbar-brand {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 13px;
+            color: var(--fg);
+        }
+        .topbar-brand .tilde {
+            color: var(--green);
+        }
+
+        .topbar-nav {
+            display: flex;
+            gap: 28px;
+        }
+        .topbar-nav a {
+            font-size: 14px;
+            color: var(--fg-soft);
+            text-decoration: none;
+            transition: color 0.15s;
+        }
+        .topbar-nav a:hover {
+            color: var(--fg);
+        }
+
+        .topbar-cta {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 12px;
+            color: var(--green);
+            border: 1px solid var(--line-strong);
+            padding: 6px 12px;
+            border-radius: 6px;
+            text-decoration: none;
+            transition: border-color 0.15s, background 0.15s;
+        }
+        .topbar-cta:hover {
+            border-color: var(--green);
+            background: var(--green-glow);
+        }
+
+        @media (max-width: 900px) {
+            .topbar-nav { display: none; }
+            .topbar { padding: 0 20px; }
+        }
+
+        /* Section spacing */
+        section {
+            padding: 100px 0;
+        }
+        @media (max-width: 900px) {
+            section { padding: 72px 0; }
+        }
+        @media (max-width: 480px) {
+            section { padding: 56px 0; }
+        }
+
+        /* Section label */
+        .section-label {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 12px;
+            font-weight: 500;
+            color: var(--green);
+            margin-bottom: 20px;
+        }
+        .section-label::before {
+            content: '$ ';
+            opacity: 0.6;
+        }
+
+        /* Headlines */
+        h1 {
+            font-size: clamp(44px, 6.5vw, 80px);
+            font-weight: 600;
+            letter-spacing: -0.03em;
+            line-height: 1.0;
+            color: var(--fg);
+        }
+        h2 {
+            font-size: clamp(32px, 4vw, 48px);
+            font-weight: 600;
+            letter-spacing: -0.025em;
+            line-height: 1.05;
+            color: var(--fg);
+        }
+        h3 {
+            font-size: 22px;
+            font-weight: 600;
+            letter-spacing: -0.02em;
+            line-height: 1.15;
+        }
+
+        .accent {
+            color: var(--green);
+        }
+        .muted {
+            color: var(--fg-soft);
+        }
+
+        .caret {
+            display: inline-block;
+            width: 4px;
+            height: 0.9em;
+            background: var(--green);
+            margin-left: 4px;
+            vertical-align: baseline;
+            animation: blink 1s steps(2) infinite;
+        }
+
+        /* Deck paragraph */
+        .deck {
+            font-size: 18px;
+            color: var(--fg-soft);
+            line-height: 1.55;
+            max-width: 620px;
+            margin-top: 20px;
+        }
+        .deck code {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 14px;
+            background: var(--bg-elev);
+            border: 1px solid var(--line);
+            padding: 1px 8px;
+            border-radius: 4px;
+            color: var(--green);
+        }
+
+        @media (max-width: 900px) {
+            h1 { font-size: clamp(34px, 9vw, 48px); }
+            h2 { font-size: clamp(26px, 7vw, 36px); }
+            .deck { font-size: 16px; }
+        }
+
+        /* Buttons */
+        .btn-primary {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 13px;
+            font-weight: 500;
+            background: var(--green);
+            color: var(--bg);
+            border: 1px solid var(--green);
+            padding: 12px 18px;
+            border-radius: 8px;
+            text-decoration: none;
+            transition: transform 0.15s, background 0.15s;
+        }
+        .btn-primary:hover {
+            background: #65e892;
+            transform: translateY(-1px);
+        }
+
+        .btn-secondary {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 13px;
+            font-weight: 500;
+            background: var(--bg-elev);
+            color: var(--fg);
+            border: 1px solid var(--line-strong);
+            padding: 12px 18px;
+            border-radius: 8px;
+            text-decoration: none;
+            transition: border-color 0.15s, background 0.15s;
+        }
+        .btn-secondary:hover {
+            border-color: var(--fg-soft);
+            background: var(--bg-elev-2);
+        }
+
+        /* Pulse dot */
+        .pulse-dot {
+            width: 7px;
+            height: 7px;
+            background: var(--green);
+            border-radius: 50%;
+            box-shadow: 0 0 10px var(--green);
+            animation: pulse 2s ease-in-out infinite;
+        }
+
+        /* Hero */
+        .hero {
+            padding-top: 120px;
+            padding-bottom: 100px;
+            position: relative;
+        }
+        .hero-glow {
+            position: absolute;
+            width: 600px;
+            height: 600px;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: radial-gradient(circle, var(--green-glow) 0%, transparent 60%);
+            z-index: -1;
+            pointer-events: none;
+        }
+        @media (max-width: 900px) {
+            .hero-glow { display: none; }
+            .hero { padding-top: 80px; }
+        }
+
+        .hero-pretitle {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 24px;
+        }
+        .hero-pretitle span {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 12px;
+            color: var(--fg-muted);
+        }
+
+        .hero-actions {
+            display: flex;
+            gap: 12px;
+            margin-top: 32px;
+        }
+        @media (max-width: 480px) {
+            .hero-actions {
+                flex-direction: column;
+            }
+            .hero-actions a {
+                width: 100%;
+                justify-content: center;
+            }
+        }
+
+        /* Stats */
+        .stats {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            border: 1px solid var(--line);
+            border-radius: 10px;
+            background: var(--bg-elev);
+            overflow: hidden;
+            margin-top: 60px;
+        }
+        .stat {
+            padding: 28px;
+            border-right: 1px solid var(--line);
+        }
+        .stat:last-child {
+            border-right: none;
+        }
+        .stat-label {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 13px;
+            color: var(--fg-muted);
+            margin-bottom: 16px;
+        }
+        .stat-number {
+            font-size: 38px;
+            font-weight: 700;
+            letter-spacing: -0.03em;
+            font-feature-settings: 'tnum' 1;
+        }
+        .stat-number.highlight {
+            color: var(--green);
+        }
+
+        @media (max-width: 900px) {
+            .stats {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            .stat {
+                padding: 22px;
+            }
+            .stat:nth-child(2) {
+                border-right: none;
+            }
+            .stat:nth-child(1), .stat:nth-child(2) {
+                border-bottom: 1px solid var(--line);
+            }
+            .stat-number {
+                font-size: 32px;
+            }
+        }
+        @media (max-width: 480px) {
+            .stat-number { font-size: 28px; }
+        }
+
+        /* Services */
+        .services-list {
+            margin-top: 48px;
+        }
+        .service-item {
+            display: grid;
+            grid-template-columns: 60px 1fr auto;
+            gap: 24px;
+            padding: 28px 0;
+            border-bottom: 1px solid var(--line);
+            transition: background 0.2s;
+        }
+        .service-item:first-child {
+            border-top: 1px solid var(--line);
+        }
+        .service-item:hover {
+            background: linear-gradient(90deg, transparent, var(--bg-elev) 50%, transparent);
+        }
+        .service-item:hover .service-title {
+            color: var(--green);
+        }
+        .service-item:hover .service-arrow {
+            transform: translateX(4px);
+        }
+
+        .service-number {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 13px;
+            color: var(--fg-muted);
+        }
+        .service-title {
+            font-size: 20px;
+            font-weight: 600;
+            margin-bottom: 8px;
+            transition: color 0.15s;
+        }
+        .service-desc {
+            font-size: 15px;
+            color: var(--fg-soft);
+            line-height: 1.5;
+            max-width: 500px;
+        }
+        .service-tags {
+            display: flex;
+            gap: 6px;
+            margin-top: 12px;
+            flex-wrap: wrap;
+        }
+        .tag {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 10px;
+            background: var(--bg-elev);
+            border: 1px solid var(--line);
+            padding: 3px 8px;
+            border-radius: 4px;
+            color: var(--fg-muted);
+        }
+        .tag::before {
+            content: '#';
+            opacity: 0.5;
+        }
+
+        .service-meta {
+            text-align: right;
+        }
+        .service-arrow {
+            font-family: 'JetBrains Mono', monospace;
+            color: var(--fg-muted);
+            margin-top: 8px;
+            transition: transform 0.15s;
+        }
+
+        @media (max-width: 900px) {
+            .service-item {
+                grid-template-columns: 1fr;
+                gap: 12px;
+            }
+            .service-number {
+                margin-bottom: -8px;
+            }
+            .service-meta {
+                text-align: left;
+                border-top: 1px dashed var(--line);
+                padding-top: 16px;
+                margin-top: 8px;
+            }
+            .service-arrow { display: none; }
+        }
+
+        /* Terminal Window */
+        .terminal-window {
+            max-width: 700px;
+            margin-top: 40px;
+            background: var(--bg-elev);
+            border: 1px solid var(--line);
+            border-radius: 10px;
+            overflow: hidden;
+        }
+        .terminal-header {
+            background: var(--bg-elev-2);
+            padding: 12px 18px;
+            border-bottom: 1px solid var(--line);
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+        .terminal-dots {
+            display: flex;
+            gap: 6px;
+        }
+        .terminal-dot {
+            width: 11px;
+            height: 11px;
+            border-radius: 50%;
+            background: var(--line-strong);
+        }
+        .terminal-title {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 12px;
+            color: var(--fg-muted);
+            flex: 1;
+            text-align: center;
+            margin-right: 45px;
+        }
+        .terminal-body {
+            padding: 32px 36px;
+        }
+        .terminal-prompt {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 15px;
+            color: var(--fg-muted);
+            margin-bottom: 24px;
+        }
+        .terminal-prompt .green {
+            color: var(--green);
+        }
+        .terminal-output {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 15px;
+            line-height: 2.4;
+        }
+        .terminal-line {
+            display: flex;
+            gap: 16px;
+        }
+        .terminal-key {
+            color: var(--fg-muted);
+            min-width: 140px;
+        }
+        .terminal-arrow {
+            color: var(--green);
+        }
+        .terminal-value {
+            color: var(--fg);
+        }
+        .terminal-value.highlight {
+            color: var(--green);
+        }
+        .terminal-cursor {
+            display: inline-block;
+            width: 8px;
+            height: 18px;
+            background: var(--green);
+            margin-left: 4px;
+            vertical-align: middle;
+            animation: blink 1s steps(2) infinite;
+        }
+
+        @media (max-width: 600px) {
+            .terminal-body {
+                padding: 24px;
+            }
+            .terminal-output {
+                font-size: 13px;
+            }
+            .terminal-prompt {
+                font-size: 13px;
+            }
+            .terminal-key {
+                min-width: 110px;
+            }
+        }
+
+        /* Process */
+        .process-list {
+            margin-top: 48px;
+            border-top: 1px solid var(--line);
+        }
+        .process-step {
+            display: grid;
+            grid-template-columns: 80px 240px 1fr;
+            gap: 32px;
+            padding: 28px 0;
+            border-bottom: 1px solid var(--line);
+        }
+        .step-number {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 13px;
+            color: var(--green);
+        }
+        .step-title {
+            font-size: 18px;
+            font-weight: 600;
+        }
+        .step-time {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 11px;
+            color: var(--fg-muted);
+            margin-top: 4px;
+        }
+        .step-desc {
+            font-size: 15px;
+            color: var(--fg-soft);
+        }
+
+        @media (max-width: 900px) {
+            .process-step {
+                grid-template-columns: 1fr;
+                gap: 8px;
+            }
+            .process-step > div:nth-child(2) {
+                display: flex;
+                justify-content: space-between;
+                align-items: baseline;
+            }
+        }
+
+        /* CTA */
+        .cta-section {
+            border-top: 1px solid var(--line);
+            text-align: center;
+            position: relative;
+        }
+        .cta-glow {
+            position: absolute;
+            width: 700px;
+            height: 400px;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: radial-gradient(ellipse, var(--green-glow) 0%, transparent 60%);
+            z-index: -1;
+            pointer-events: none;
+        }
+        @media (max-width: 900px) {
+            .cta-glow { display: none; }
+        }
+
+        .cta-form {
+            max-width: 440px;
+            margin: 32px auto 0;
+        }
+        .cta-form-row {
+            display: flex;
+            gap: 12px;
+        }
+        .cta-input {
+            flex: 1;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 13px;
+            background: var(--bg-elev);
+            border: 1px solid var(--line-strong);
+            color: var(--fg);
+            padding: 13px 16px;
+            border-radius: 8px;
+            outline: none;
+            transition: border-color 0.15s;
+        }
+        .cta-input:focus {
+            border-color: var(--green);
+        }
+        .cta-input::placeholder {
+            color: var(--fg-muted);
+        }
+        .cta-meta {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 12px;
+            color: var(--fg-muted);
+            margin-top: 16px;
+        }
+        .cta-meta::before {
+            content: '// ';
+            opacity: 0.5;
+        }
+
+        @media (max-width: 480px) {
+            .cta-form-row {
+                flex-direction: column;
+            }
+        }
+
+        /* Footer */
+        footer {
+            border-top: 1px solid var(--line);
+            padding: 48px 0 24px;
+        }
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 1.5fr 1fr 1fr 1fr;
+            gap: 32px;
+        }
+        .footer-brand {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 14px;
+            color: var(--fg);
+            margin-bottom: 12px;
+        }
+        .footer-brand .tilde {
+            color: var(--green);
+        }
+        .footer-tagline {
+            font-size: 13px;
+            color: var(--fg-muted);
+            max-width: 280px;
+        }
+        .footer-col-title {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 11px;
+            color: var(--fg-muted);
+            margin-bottom: 16px;
+        }
+        .footer-col-title::before {
+            content: '// ';
+            opacity: 0.5;
+        }
+        .footer-links {
+            list-style: none;
+        }
+        .footer-links li {
+            margin-bottom: 10px;
+        }
+        .footer-links a {
+            font-size: 14px;
+            color: var(--fg-soft);
+            text-decoration: none;
+            transition: color 0.15s;
+        }
+        .footer-links a:hover {
+            color: var(--green);
+        }
+
+        .footer-bottom {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-top: 1px solid var(--line);
+            padding-top: 20px;
+            margin-top: 40px;
+        }
+        .footer-copyright, .footer-status {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 11px;
+            color: var(--fg-muted);
+        }
+        .footer-status {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        @media (max-width: 900px) {
+            .footer-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            .footer-tagline {
+                grid-column: 1 / -1;
+                margin-bottom: 16px;
+            }
+        }
+        @media (max-width: 480px) {
+            .footer-grid {
+                grid-template-columns: 1fr;
+            }
+            .footer-bottom {
+                flex-direction: column;
+                gap: 12px;
+                align-items: flex-start;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Topbar -->
+    <header class="topbar">
+        <div class="topbar-brand">
+            <span class="tilde">~</span>sparrowcorp
+        </div>
+        <nav class="topbar-nav">
+            <a href="#services">Services</a>
+            <a href="#experience">Experience</a>
+            <a href="#process">Process</a>
+            <a href="#contact">Contact</a>
+        </nav>
+        <a href="#contact" class="topbar-cta">→ book call</a>
+    </header>
+
+    <!-- Hero -->
+    <section class="hero">
+        <div class="hero-glow"></div>
+        <div class="container">
+            <div class="hero-pretitle">
+                <div class="pulse-dot"></div>
+                <span>accepting clients for q3 2026 · response under 24h</span>
+            </div>
+
+            <h1>
+                Scale paid traffic,<br>
+                built on <span class="accent">operator experience</span><span class="caret"></span>
+            </h1>
+
+            <p class="deck">
+                Growth team for mobile apps. UA + creatives + analytics.<br>
+                One team instead of three vendors. Managed budgets up to <code>$10M/mo</code>.
+            </p>
+
+            <div class="hero-actions">
+                <a href="#contact" class="btn-primary">→ book a 30-min call</a>
+                <a href="#services" class="btn-secondary">see the work</a>
+            </div>
+
+            <!-- Stats -->
+            <div class="stats">
+                <div class="stat">
+                    <div class="stat-label">years operator side</div>
+                    <div class="stat-number">15</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-label">own app ARR</div>
+                    <div class="stat-number">$1.3M</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-label">budget managed</div>
+                    <div class="stat-number highlight">$200M+</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-label">creative cost reduction</div>
+                    <div class="stat-number">5x</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services -->
+    <section id="services">
+        <div class="container">
+            <div class="section-label">services</div>
+            <h2>
+                Full-stack growth. <span class="muted">No gaps<br>between channels.</span>
+            </h2>
+            <p class="deck">
+                One team handles acquisition, creatives, and analytics. No finger-pointing between vendors.
+            </p>
+
+            <div class="services-list">
+                <div class="service-item">
+                    <div class="service-number">/01</div>
+                    <div>
+                        <div class="service-title">User Acquisition</div>
+                        <div class="service-desc">Meta, Google, TikTok, Apple Search Ads, influencers. Optimized for LTV and payback, not installs.</div>
+                        <div class="service-tags">
+                            <span class="tag">meta-ads</span>
+                            <span class="tag">google-uac</span>
+                            <span class="tag">tiktok</span>
+                            <span class="tag">asa</span>
+                        </div>
+                    </div>
+                    <div class="service-meta">
+                        <div class="service-arrow">→</div>
+                    </div>
+                </div>
+
+                <div class="service-item">
+                    <div class="service-number">/02</div>
+                    <div>
+                        <div class="service-title">Creative Production</div>
+                        <div class="service-desc">Performance creatives at scale: video, static, UGC-style. In-house team + AI pipeline for volume.</div>
+                        <div class="service-tags">
+                            <span class="tag">video</span>
+                            <span class="tag">static</span>
+                            <span class="tag">ugc</span>
+                            <span class="tag">ai-production</span>
+                        </div>
+                    </div>
+                    <div class="service-meta">
+                        <div class="service-arrow">→</div>
+                    </div>
+                </div>
+
+                <div class="service-item">
+                    <div class="service-number">/03</div>
+                    <div>
+                        <div class="service-title">Analytics & Unit Economics</div>
+                        <div class="service-desc">Attribution audit, cohort analysis, tKPI modeling. Know when to scale and when to stop.</div>
+                        <div class="service-tags">
+                            <span class="tag">appsflyer</span>
+                            <span class="tag">amplitude</span>
+                            <span class="tag">revenuecat</span>
+                        </div>
+                    </div>
+                    <div class="service-meta">
+                        <div class="service-arrow">→</div>
+                    </div>
+                </div>
+
+                <div class="service-item">
+                    <div class="service-number">/04</div>
+                    <div>
+                        <div class="service-title">ASO & Store Optimization</div>
+                        <div class="service-desc">Metadata, screenshots, A/B tests. Improve organic and paid conversion rates.</div>
+                        <div class="service-tags">
+                            <span class="tag">app-store</span>
+                            <span class="tag">google-play</span>
+                            <span class="tag">ab-testing</span>
+                        </div>
+                    </div>
+                    <div class="service-meta">
+                        <div class="service-arrow">→</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Experience -->
+    <section id="experience">
+        <div class="container">
+            <div class="section-label">experience</div>
+            <h2>
+                Operators, <span class="muted">not consultants.</span>
+            </h2>
+            <p class="deck">
+                We ran the budgets ourselves. Built apps, scaled teams, managed eight-figure spend.
+            </p>
+
+            <div class="terminal-window">
+                <div class="terminal-header">
+                    <div class="terminal-dots">
+                        <div class="terminal-dot"></div>
+                        <div class="terminal-dot"></div>
+                        <div class="terminal-dot"></div>
+                    </div>
+                    <div class="terminal-title">~/sparrowcorp/experience.log</div>
+                </div>
+                <div class="terminal-body">
+                    <div class="terminal-prompt"><span class="green">$</span> cat experience.log</div>
+                    <div class="terminal-output">
+                        <div class="terminal-line">
+                            <span class="terminal-key">ua_budgets</span>
+                            <span class="terminal-arrow">→</span>
+                            <span class="terminal-value">$10M/month managed</span>
+                        </div>
+                        <div class="terminal-line">
+                            <span class="terminal-key">own_app</span>
+                            <span class="terminal-arrow">→</span>
+                            <span class="terminal-value highlight">$1.3M ARR built</span>
+                        </div>
+                        <div class="terminal-line">
+                            <span class="terminal-key">creative_cost</span>
+                            <span class="terminal-arrow">→</span>
+                            <span class="terminal-value">5x reduction achieved</span>
+                        </div>
+                        <div class="terminal-line">
+                            <span class="terminal-key">scale</span>
+                            <span class="terminal-arrow">→</span>
+                            <span class="terminal-value">$400M+ revenue company</span>
+                        </div>
+                        <div class="terminal-line">
+                            <span class="terminal-key">ranking</span>
+                            <span class="terminal-arrow">→</span>
+                            <span class="terminal-value">top-10 grossing launches</span>
+                        </div>
+                        <div class="terminal-line">
+                            <span class="terminal-key">team_built</span>
+                            <span class="terminal-arrow">→</span>
+                            <span class="terminal-value">30+ production team</span>
+                        </div>
+                    </div>
+                    <div class="terminal-prompt" style="margin-top: 20px; margin-bottom: 0;"><span class="green">$</span> <span class="terminal-cursor"></span></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Process -->
+    <section id="process">
+        <div class="container">
+            <div class="section-label">process</div>
+            <h2>
+                How we <span class="muted">work together.</span>
+            </h2>
+            <p class="deck">
+                From audit to scale. Clear milestones, weekly syncs, full transparency.
+            </p>
+
+            <div class="process-list">
+                <div class="process-step">
+                    <div class="step-number">/01</div>
+                    <div>
+                        <div class="step-title">Audit & Deep Dive</div>
+                        <div class="step-time">week 1</div>
+                    </div>
+                    <div class="step-desc">Competitor analysis, audience research, current UA review. Attribution audit and unit economics check.</div>
+                </div>
+
+                <div class="process-step">
+                    <div class="step-number">/02</div>
+                    <div>
+                        <div class="step-title">Strategy & KPIs</div>
+                        <div class="step-time">week 2</div>
+                    </div>
+                    <div class="step-desc">Align on goals, tKPIs, budgets. Form hypotheses and test plan for launch.</div>
+                </div>
+
+                <div class="process-step">
+                    <div class="step-number">/03</div>
+                    <div>
+                        <div class="step-title">Creative Production</div>
+                        <div class="step-time">weeks 2-4</div>
+                    </div>
+                    <div class="step-desc">Launch production pipeline. Concepts, video, static. AI + classic workflow in parallel.</div>
+                </div>
+
+                <div class="process-step">
+                    <div class="step-number">/04</div>
+                    <div>
+                        <div class="step-title">Launch & Optimize</div>
+                        <div class="step-time">ongoing</div>
+                    </div>
+                    <div class="step-desc">Deploy campaigns, run A/B tests, optimize for LTV. Weekly reports and syncs.</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA -->
+    <section id="contact" class="cta-section">
+        <div class="cta-glow"></div>
+        <div class="container">
+            <div class="section-label">contact</div>
+            <h2>
+                Ready to <span class="accent">scale</span>?
+            </h2>
+            <p class="deck" style="margin: 20px auto 0; text-align: center;">
+                Tell us about your app. We'll discuss if we're a fit and how engagement could look.
+            </p>
+
+            <div class="cta-actions" style="margin-top: 32px;">
+                <a href="https://cal.com" target="_blank" class="btn-primary" style="font-size: 15px; padding: 16px 28px;">→ book a 30-min call</a>
+            </div>
+            <div class="cta-meta" style="margin-top: 20px;">or direct: hello@sparrowcorp.io · response &lt; 24h</div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div>
+                    <div class="footer-brand"><span class="tilde">~</span>sparrowcorp</div>
+                    <div class="footer-tagline">Growth team for mobile apps. UA, creatives, analytics — one team, full stack.</div>
+                </div>
+                <div>
+                    <div class="footer-col-title">services</div>
+                    <ul class="footer-links">
+                        <li><a href="#services">User Acquisition</a></li>
+                        <li><a href="#services">Creative Production</a></li>
+                        <li><a href="#services">Analytics</a></li>
+                        <li><a href="#services">ASO</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <div class="footer-col-title">channels</div>
+                    <ul class="footer-links">
+                        <li><a href="#">Meta Ads</a></li>
+                        <li><a href="#">Google UAC</a></li>
+                        <li><a href="#">TikTok Ads</a></li>
+                        <li><a href="#">Apple Search Ads</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <div class="footer-col-title">contact</div>
+                    <ul class="footer-links">
+                        <li><a href="mailto:hello@sparrowcorp.io">Email</a></li>
+                        <li><a href="#">LinkedIn</a></li>
+                        <li><a href="#">Telegram</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <div class="footer-copyright">© 2026 Sparrowcorp</div>
+                <div class="footer-status">
+                    <div class="pulse-dot" style="width: 6px; height: 6px;"></div>
+                    accepting clients
+                </div>
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>

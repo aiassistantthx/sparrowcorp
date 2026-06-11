@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#0c0c0d">
+    <meta name="color-scheme" content="dark">
+    <title>Data Deletion Instructions — Sparrowcorp</title>
+    <meta name="description" content="How to delete your data from Creative Farm (Facebook app) and the Sorovi (Hyreel) iOS app by Sparrowcorp.">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --bg: #0c0c0d;
+            --bg-elev: #161617;
+            --fg: #f2f2f3;
+            --fg-soft: #a8a8ad;
+            --fg-muted: #6e6e73;
+            --line: #232326;
+            --line-strong: #2e2e32;
+            --green: #4ade80;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        html, body {
+            background: var(--bg);
+            color-scheme: dark;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            color: var(--fg);
+            line-height: 1.65;
+            min-height: 100vh;
+        }
+
+        .mono { font-family: 'JetBrains Mono', monospace; }
+
+        .topbar {
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            height: 50px;
+            background: rgba(12, 12, 13, 0.85);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border-bottom: 1px solid var(--line);
+            display: flex;
+            align-items: center;
+            padding: 0 32px;
+        }
+        .topbar a {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 13px;
+            color: var(--fg);
+            text-decoration: none;
+        }
+        .topbar a .tilde { color: var(--green); }
+
+        .container {
+            max-width: 760px;
+            margin: 0 auto;
+            padding: 64px 32px 96px;
+        }
+        @media (max-width: 600px) {
+            .container { padding: 48px 20px 72px; }
+        }
+
+        .kicker {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 12px;
+            color: var(--green);
+            text-transform: uppercase;
+            letter-spacing: 0.15em;
+            margin-bottom: 12px;
+        }
+
+        h1 {
+            font-size: 38px;
+            font-weight: 700;
+            letter-spacing: -0.02em;
+            margin-bottom: 8px;
+        }
+
+        .updated {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 12px;
+            color: var(--fg-muted);
+            margin-bottom: 48px;
+        }
+
+        h2 {
+            font-size: 22px;
+            font-weight: 600;
+            letter-spacing: -0.01em;
+            margin: 44px 0 14px;
+            padding-top: 20px;
+            border-top: 1px solid var(--line);
+        }
+
+        p, ul, ol { color: var(--fg-soft); font-size: 15px; margin-bottom: 14px; }
+        ul, ol { padding-left: 22px; }
+        li { margin-bottom: 10px; }
+        ul li::marker { color: var(--green); }
+        ol li::marker { color: var(--green); font-family: 'JetBrains Mono', monospace; font-size: 13px; }
+        strong { color: var(--fg); font-weight: 600; }
+
+        a { color: var(--fg); text-decoration: underline; text-decoration-color: var(--green); text-underline-offset: 3px; }
+
+        .card {
+            background: var(--bg-elev);
+            border: 1px solid var(--line-strong);
+            border-radius: 10px;
+            padding: 20px 24px;
+            margin-bottom: 14px;
+        }
+        .card p:last-child { margin-bottom: 0; }
+
+        code {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 13px;
+            background: var(--bg-elev);
+            border: 1px solid var(--line-strong);
+            border-radius: 4px;
+            padding: 2px 6px;
+            color: var(--green);
+        }
+
+        .page-footer {
+            border-top: 1px solid var(--line);
+            margin-top: 64px;
+            padding-top: 24px;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 12px;
+            color: var(--fg-muted);
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+        .page-footer a { color: var(--fg-muted); text-decoration: none; }
+        .page-footer a:hover { color: var(--fg); }
+    </style>
+</head>
+<body>
+    <div class="topbar">
+        <a href="/"><span class="tilde">~</span>sparrowcorp</a>
+    </div>
+
+    <div class="container">
+        <div class="kicker">// legal</div>
+        <h1>Data Deletion Instructions</h1>
+        <div class="updated">last updated: 2026-06-11</div>
+
+        <p>This page explains how to delete the data that Sparrowcorp (&ldquo;we&rdquo;, &ldquo;us&rdquo;) holds about you in connection with our products. Deletion is free, and we confirm completion by email. For details on what data we collect and why, see our <a href="/privacy-policy/">Privacy Policy</a>.</p>
+
+        <h2>Creative Farm (Facebook App)</h2>
+        <p>If you connected the Creative Farm app to your Facebook account and want your data removed, you have two options — you can use either or both:</p>
+
+        <div class="card">
+            <p><strong>Option 1 — Remove the app in Facebook settings (revokes access immediately):</strong></p>
+            <ol>
+                <li>Open Facebook and go to <strong>Settings &amp; Privacy &rarr; Settings</strong>.</li>
+                <li>Select <strong>Apps and Websites</strong> in the left menu.</li>
+                <li>Find <strong>Creative Farm</strong> in the list of active apps.</li>
+                <li>Click <strong>Remove</strong> and confirm.</li>
+            </ol>
+            <p>This immediately revokes Creative Farm&rsquo;s access to your Facebook account and ad accounts. No new data will be received from Meta after removal.</p>
+        </div>
+
+        <div class="card">
+            <p><strong>Option 2 — Email us a deletion request:</strong></p>
+            <ol>
+                <li>Email <a href="mailto:i@sparrowcorp.io?subject=Data%20Deletion%20Request">i@sparrowcorp.io</a> with the subject <code>Data Deletion Request</code>.</li>
+                <li>Include the name or email associated with your account, and mention <strong>Creative Farm</strong>.</li>
+            </ol>
+            <p>We will delete all data associated with your account — including any Platform Data received from Meta (profile information, ad account identifiers, campaign metadata, and performance metrics) — within <strong>30 days</strong> and send you a confirmation when deletion is complete.</p>
+        </div>
+
+        <h2>Sorovi (Hyreel) iOS App</h2>
+        <ul>
+            <li><strong>In the app:</strong> go to <strong>Settings &rarr; Account &rarr; Delete Account</strong>. This deletes your account, uploaded photos, and generated videos.</li>
+            <li><strong>By email:</strong> send a request to <a href="mailto:i@sparrowcorp.io?subject=Data%20Deletion%20Request">i@sparrowcorp.io</a> with the subject <code>Data Deletion Request</code> from the email address associated with your account.</li>
+        </ul>
+        <p>Account data is deleted within 30 days of the request. Subscription billing is managed by Apple — to stop an active subscription, cancel it in your Apple ID settings (deleting your account does not cancel an Apple subscription).</p>
+
+        <h2>What We Retain</h2>
+        <p>After deletion we may retain only what the law requires us to keep (for example, transaction records for tax purposes) and aggregated, non-identifying analytics. Everything else associated with your account is permanently removed.</p>
+
+        <h2>Questions</h2>
+        <p>If you have any questions about data deletion, contact us at <a href="mailto:i@sparrowcorp.io">i@sparrowcorp.io</a>. We respond within 24 hours on business days.</p>
+
+        <div class="page-footer">
+            <span>© 2026 Sparrowcorp</span>
+            <a href="/">home</a>
+            <a href="/privacy-policy/">privacy policy</a>
+            <a href="/terms/">terms</a>
+        </div>
+    </div>
+</body>
+</html>

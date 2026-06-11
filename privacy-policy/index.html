@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#0c0c0d">
+    <meta name="color-scheme" content="dark">
+    <title>Privacy Policy — Sparrowcorp</title>
+    <meta name="description" content="Privacy Policy for Sparrowcorp, the Sorovi (Hyreel) iOS app, and the Creative Farm application.">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --bg: #0c0c0d;
+            --fg: #f2f2f3;
+            --fg-soft: #a8a8ad;
+            --fg-muted: #6e6e73;
+            --line: #232326;
+            --line-strong: #2e2e32;
+            --green: #4ade80;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        html, body {
+            background: var(--bg);
+            color-scheme: dark;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            color: var(--fg);
+            line-height: 1.65;
+            min-height: 100vh;
+        }
+
+        .mono { font-family: 'JetBrains Mono', monospace; }
+
+        .topbar {
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            height: 50px;
+            background: rgba(12, 12, 13, 0.85);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border-bottom: 1px solid var(--line);
+            display: flex;
+            align-items: center;
+            padding: 0 32px;
+        }
+        .topbar a {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 13px;
+            color: var(--fg);
+            text-decoration: none;
+        }
+        .topbar a .tilde { color: var(--green); }
+
+        .container {
+            max-width: 760px;
+            margin: 0 auto;
+            padding: 64px 32px 96px;
+        }
+        @media (max-width: 600px) {
+            .container { padding: 48px 20px 72px; }
+        }
+
+        .kicker {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 12px;
+            color: var(--green);
+            text-transform: uppercase;
+            letter-spacing: 0.15em;
+            margin-bottom: 12px;
+        }
+
+        h1 {
+            font-size: 38px;
+            font-weight: 700;
+            letter-spacing: -0.02em;
+            margin-bottom: 8px;
+        }
+
+        .updated {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 12px;
+            color: var(--fg-muted);
+            margin-bottom: 48px;
+        }
+
+        h2 {
+            font-size: 22px;
+            font-weight: 600;
+            letter-spacing: -0.01em;
+            margin: 44px 0 14px;
+            padding-top: 20px;
+            border-top: 1px solid var(--line);
+        }
+
+        h3 {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 13px;
+            font-weight: 600;
+            color: var(--green);
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            margin: 28px 0 10px;
+        }
+
+        p, ul { color: var(--fg-soft); font-size: 15px; margin-bottom: 14px; }
+        ul { padding-left: 22px; }
+        li { margin-bottom: 8px; }
+        li::marker { color: var(--green); }
+        strong { color: var(--fg); font-weight: 600; }
+
+        a { color: var(--fg); text-decoration: underline; text-decoration-color: var(--green); text-underline-offset: 3px; }
+
+        .page-footer {
+            border-top: 1px solid var(--line);
+            margin-top: 64px;
+            padding-top: 24px;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 12px;
+            color: var(--fg-muted);
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+        .page-footer a { color: var(--fg-muted); text-decoration: none; }
+        .page-footer a:hover { color: var(--fg); }
+    </style>
+</head>
+<body>
+    <div class="topbar">
+        <a href="/"><span class="tilde">~</span>sparrowcorp</a>
+    </div>
+
+    <div class="container">
+        <div class="kicker">// legal</div>
+        <h1>Privacy Policy</h1>
+        <div class="updated">last updated: 2026-06-11</div>
+
+        <p>This Privacy Policy describes how Sparrowcorp (&ldquo;Sparrowcorp&rdquo;, &ldquo;we&rdquo;, &ldquo;us&rdquo;, or &ldquo;our&rdquo;) collects, uses, and shares information when you use our website at sparrowcorp.io (the &ldquo;Site&rdquo;) and our products and services (together, the &ldquo;Services&rdquo;), including:</p>
+        <ul>
+            <li><strong>Sorovi (Hyreel)</strong> — an AI video generator application for iOS, distributed through the Apple App Store; and</li>
+            <li><strong>Creative Farm</strong> — an advertising creative production and management application that integrates with Meta platforms (Facebook and Instagram) through Meta&rsquo;s APIs.</li>
+        </ul>
+        <p>By using the Services, you agree to the collection and use of information in accordance with this Privacy Policy. If you do not agree, please do not use the Services.</p>
+
+        <h2>1. Information We Collect</h2>
+
+        <h3>1.1 Sorovi (Hyreel) iOS App</h3>
+        <p>When you use the Sorovi app, we may collect:</p>
+        <ul>
+            <li><strong>Account information.</strong> If you create an account or sign in, we collect your email address and authentication identifiers. Authentication is provided by Firebase Authentication (Google LLC).</li>
+            <li><strong>User content.</strong> Photos and images you upload to the app in order to generate videos, and the videos generated from them. Uploaded content is processed by our AI processing providers solely to deliver the video generation feature you requested.</li>
+            <li><strong>Purchase and subscription information.</strong> Subscription status, product identifiers, and transaction metadata processed through Apple&rsquo;s In-App Purchase system and RevenueCat. We never receive or store your full payment card details — payments are handled entirely by Apple.</li>
+            <li><strong>Device and usage data.</strong> Device model, operating system version, app version, language, anonymized identifiers, crash logs, and usage analytics that help us understand how the app is used and improve it.</li>
+        </ul>
+
+        <h3>1.2 Creative Farm (Facebook App)</h3>
+        <p>Creative Farm is a business tool used to produce, upload, and manage advertising creatives on Meta platforms. When you connect Creative Farm to your Facebook account, we may access and process:</p>
+        <ul>
+            <li><strong>Basic profile information</strong> provided by Meta when you authorize the app (such as your name and the ID associated with your Facebook account).</li>
+            <li><strong>Ad account data.</strong> Ad account identifiers, campaign, ad set, and ad metadata, and aggregate performance metrics (impressions, clicks, spend, conversions) retrieved through the Meta Marketing API.</li>
+            <li><strong>Content you provide,</strong> such as creative assets (videos, images, ad copy) that you upload or generate for publication to your ad accounts.</li>
+        </ul>
+        <p>Creative Farm does <strong>not</strong> collect or process personal data of people who view or interact with the ads it manages. Any data received from Meta (&ldquo;Platform Data&rdquo;) is processed in accordance with the <a href="https://developers.facebook.com/terms/" target="_blank" rel="noopener noreferrer">Meta Platform Terms</a> and Developer Policies, is used only to provide the functionality of Creative Farm, is never sold, and is never used for advertising unrelated to your own ad accounts.</p>
+
+        <h3>1.3 Website</h3>
+        <p>When you visit the Site, we may collect standard technical information such as IP address, browser type, pages visited, and referring URLs through server logs and privacy-respecting analytics.</p>
+
+        <h2>2. How We Use Information</h2>
+        <p>We use the information we collect to:</p>
+        <ul>
+            <li>provide, operate, and maintain the Services;</li>
+            <li>process the content you submit (for example, generate videos from images you upload, or publish ad creatives to your ad accounts);</li>
+            <li>manage accounts, subscriptions, and purchases;</li>
+            <li>monitor performance, diagnose problems, and improve the Services;</li>
+            <li>respond to your support requests;</li>
+            <li>comply with legal obligations and enforce our Terms.</li>
+        </ul>
+        <p>We do <strong>not</strong> sell your personal information, and we do not use your content to train AI models without your explicit consent.</p>
+
+        <h2>3. Legal Bases (EEA/UK Users)</h2>
+        <p>Where the GDPR or UK GDPR applies, we process personal data on the following legal bases: performance of a contract (providing the Services you request), legitimate interests (securing and improving the Services), consent (where required, e.g. for optional analytics), and compliance with legal obligations.</p>
+
+        <h2>4. How We Share Information</h2>
+        <p>We share information only with service providers that help us operate the Services, under agreements that restrict their use of your data:</p>
+        <ul>
+            <li><strong>Apple Inc.</strong> — App Store distribution and in-app purchases;</li>
+            <li><strong>Google LLC (Firebase)</strong> — authentication, database, and cloud functions for the Sorovi app;</li>
+            <li><strong>RevenueCat, Inc.</strong> — subscription management;</li>
+            <li><strong>AI processing providers</strong> — processing of uploaded images solely to generate the videos you request;</li>
+            <li><strong>Meta Platforms, Inc.</strong> — when you use Creative Farm, data is exchanged with Meta&rsquo;s APIs at your direction to manage your ad accounts;</li>
+            <li><strong>Hosting and infrastructure providers</strong> — to run our websites and backend services.</li>
+        </ul>
+        <p>We may also disclose information if required by law, or in connection with a merger, acquisition, or sale of assets (in which case this Policy will continue to apply to your data).</p>
+
+        <h2>5. Data Retention</h2>
+        <ul>
+            <li>Account data is retained while your account is active and deleted within 30 days of account deletion.</li>
+            <li>Uploaded images and generated videos are retained only as long as needed to provide the feature and your access to your creations, and are deleted when you delete them or your account.</li>
+            <li>Platform Data obtained from Meta is retained only as long as necessary to provide Creative Farm&rsquo;s functionality and is deleted promptly when no longer needed or upon request.</li>
+            <li>Aggregated, non-identifying analytics may be retained longer.</li>
+        </ul>
+
+        <h2>6. Data Deletion</h2>
+        <p>You can request deletion of your data at any time:</p>
+        <ul>
+            <li><strong>Sorovi app:</strong> delete your account directly in the app (Settings &rarr; Account &rarr; Delete Account), or email us at <a href="mailto:hello@sparrowcorp.io">hello@sparrowcorp.io</a>.</li>
+            <li><strong>Creative Farm:</strong> remove the app from your Facebook account (Facebook Settings &rarr; Apps and Websites &rarr; remove Creative Farm) — this revokes our access — and/or email us at <a href="mailto:hello@sparrowcorp.io">hello@sparrowcorp.io</a> with the subject &ldquo;Data Deletion Request&rdquo;. We will delete all data associated with your account within 30 days and confirm completion.</li>
+        </ul>
+
+        <h2>7. Your Rights</h2>
+        <p>Depending on your location, you may have the right to access, correct, export, restrict, object to the processing of, or delete your personal data, and the right to lodge a complaint with a supervisory authority. To exercise these rights, contact us at <a href="mailto:hello@sparrowcorp.io">hello@sparrowcorp.io</a>.</p>
+
+        <h2>8. Security</h2>
+        <p>We use industry-standard technical and organizational measures to protect your data, including encryption in transit, access controls, and least-privilege access to production systems. No method of transmission or storage is 100% secure, but we work to protect your information against unauthorized access, alteration, and destruction.</p>
+
+        <h2>9. International Transfers</h2>
+        <p>Your information may be processed in countries other than your own, including the United States and the European Union. Where required, we rely on appropriate safeguards such as Standard Contractual Clauses.</p>
+
+        <h2>10. Children</h2>
+        <p>The Services are not directed to children under 13 (or the minimum age required in your jurisdiction), and we do not knowingly collect personal data from children. If you believe a child has provided us personal data, contact us and we will delete it.</p>
+
+        <h2>11. Changes to This Policy</h2>
+        <p>We may update this Privacy Policy from time to time. We will post the updated version on this page and revise the &ldquo;Last updated&rdquo; date above. Material changes will be communicated through the Services where appropriate.</p>
+
+        <h2>12. Contact</h2>
+        <p>Sparrowcorp<br>
+        Email: <a href="mailto:hello@sparrowcorp.io">hello@sparrowcorp.io</a><br>
+        Website: sparrowcorp.io</p>
+
+        <div class="page-footer">
+            <span>© 2026 Sparrowcorp</span>
+            <a href="/">home</a>
+            <a href="/terms/">terms</a>
+        </div>
+    </div>
+</body>
+</html>
